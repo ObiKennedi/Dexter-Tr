@@ -1,0 +1,263 @@
+.footer {
+    background: var(--color-bg-surface);
+    border-top: 1px solid var(--color-border);
+    font-family: 'Inter', system-ui, sans-serif;
+    padding: 5rem 6rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    @media (max-width: 1024px) { padding: 4rem 3rem 2rem; }
+    @media (max-width: 768px)  { padding: 3.5rem 1.5rem 2rem; }
+}
+
+// ── Top ───────────────────────────────────────
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+
+    @media (max-width: 540px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+// ── Brand column ──────────────────────────────
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        border: 1.5px solid var(--color-accent);
+        padding: 3px;
+    }
+
+    span {
+        font-size: var(--text-md);
+        font-weight: var(--weight-medium);
+        letter-spacing: 0.01em;
+        color: var(--color-text-primary);
+
+        em {
+            font-style: normal;
+            color: var(--color-accent);
+        }
+    }
+}
+
+.footer-tagline {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-regular);
+    color: var(--color-text-muted);
+    line-height: var(--leading-normal);
+    margin: 0;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.25rem;
+}
+
+.footer-social-link {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition:
+        color        var(--duration-fast) var(--ease-out),
+        border-color var(--duration-fast) var(--ease-out),
+        background   var(--duration-fast) var(--ease-out);
+
+    &:hover {
+        color: var(--color-accent);
+        border-color: var(--color-accent);
+        background: var(--color-white-ghost);
+    }
+}
+
+// ── Col label ─────────────────────────────────
+.footer-col-label {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 1.25rem;
+}
+
+// ── Nav column ────────────────────────────────
+.footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+
+    a {
+        font-size: var(--text-sm);
+        font-weight: var(--weight-regular);
+        color: var(--color-text-muted);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: color var(--duration-fast) var(--ease-out),
+                    transform var(--duration-fast) var(--ease-out);
+        display: inline-block;
+
+        &:hover {
+            color: var(--color-text-primary);
+            transform: translateX(4px);
+        }
+    }
+}
+
+// ── Contact column ────────────────────────────
+.footer-contact ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+
+    li {
+        font-size: var(--text-sm);
+        font-weight: var(--weight-regular);
+        color: var(--color-text-muted);
+        line-height: var(--leading-snug);
+    }
+
+    a {
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: color var(--duration-fast) var(--ease-out);
+
+        &:hover { color: var(--color-accent); }
+    }
+
+    span {
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+        line-height: var(--leading-normal);
+    }
+}
+
+// ── CTA column ────────────────────────────────
+.footer-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-cta-text {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-regular);
+    color: var(--color-text-muted);
+    line-height: var(--leading-normal);
+    margin: 0;
+}
+
+.footer-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    align-self: flex-start;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-black);
+    background: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    padding: 0.75rem 1.5rem;
+    transition:
+        background   var(--duration-base) var(--ease-out),
+        border-color var(--duration-base) var(--ease-out),
+        box-shadow   var(--duration-base) var(--ease-out);
+
+    &:hover {
+        background: var(--color-gold-light);
+        border-color: var(--color-gold-light);
+        box-shadow: 0 0 20px rgba(200, 169, 74, 0.3);
+    }
+}
+
+// ── Divider ───────────────────────────────────
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--color-border);
+}
+
+// ── Bottom bar ────────────────────────────────
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+    }
+}
+
+.footer-copy,
+.footer-made {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-regular);
+    color: var(--color-text-muted);
+    letter-spacing: 0.03em;
+    margin: 0;
+    opacity: 0.6;
+
+    span {
+        color: var(--color-accent);
+        opacity: 1;
+    }
+}
+
+.footer-back-top {
+    font-family: inherit;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color var(--duration-fast) var(--ease-out);
+    opacity: 0.6;
+
+    &:hover {
+        color: var(--color-accent);
+        opacity: 1;
+    }
+}
