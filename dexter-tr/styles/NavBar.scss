@@ -1,0 +1,163 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    justify-content: space-between;
+    z-index: 1000;
+    transition: all var(--duration-medium) var(--ease-out);
+
+    .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        position: relative;  /* ← needed for z-index to work */
+        z-index: 1020;       /* ← above the backdrop (1005) */
+
+        img {
+            margin-top: 2px;
+            width: 38px;
+            height: 38px;
+        }
+
+        span {
+            font-size: var(--text-lg);
+            font-weight: var(--weight-medium);
+            letter-spacing: var(--tracking-wider);
+            color: var(--color-text-primary);
+
+            span {
+                color: var(--color-accent);
+                font-weight: var(--weight-bold);
+            }
+        }
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-text-primary);
+        z-index: 1020;
+        position: relative;
+
+        svg {
+            width: 26px;
+            height: 26px;
+            transition: transform var(--duration-fast);
+        }
+
+        @media (max-width: 768px) {
+            display: flex;
+        }
+    }
+
+    /* Desktop Navigation */
+    nav {
+        @media (min-width: 769px) {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            display: block;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 280px;
+            background: rgba(10, 10, 10, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
+            transform: translateX(100%);
+            transition: transform 700ms cubic-bezier(0.76, 0, 0.24, 1);
+            padding: 5rem 2rem 3rem;
+            z-index: 1010;
+            overflow-y: auto;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                gap: 2.25rem;
+                align-items: start;
+                text-align: center;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-text-primary);
+            font-size: var(--text-sm);
+            font-weight: var(--weight-medium);
+            letter-spacing: var(--tracking-wider);
+            transition: color var(--duration-fast) var(--ease-out);
+
+            &:hover {
+                color: var(--color-accent);
+            }
+
+            @media (max-width: 768px) {
+                font-size: 1.35rem;
+                padding: 0.6rem 1.5rem;
+                display: block;
+            }
+        }
+    }
+
+    /* Backdrop — always rendered, invisible by default */
+    &::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 1005;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--duration-medium) ease;
+    }
+
+    /* Open state */
+    &.menu-open {
+
+        &::before {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu-toggle svg {
+            transform: rotate(90deg);
+        }
+
+        nav {
+            @media (max-width: 768px) {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    /* Scrolled: black glass */
+    &.scrolled {
+        background-color: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--color-border-accent);
+    }
+}

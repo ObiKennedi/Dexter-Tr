@@ -1,0 +1,201 @@
+.about-section {
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    padding: 8rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    @media (max-width: 1024px) {
+        padding: 6rem 3rem;
+        gap: 5rem;
+    }
+
+    @media (max-width: 768px) {
+        padding: 5rem 1.5rem;
+        gap: 4rem;
+    }
+}
+
+// ── Row 1: Title + Intro ──────────────────────────────────
+.about-intro {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: start;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.about-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+    color: var(--color-text-primary);
+    margin: 0;
+
+    // Gold underline accent
+    position: relative;
+    padding-bottom: 1.25rem;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 1px;
+        background: var(--color-accent);
+    }
+}
+
+.about-intro-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-lead {
+    font-size: var(--text-md);
+    font-weight: var(--weight-regular);
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+    margin: 0;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.about-intro-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    p {
+        font-size: var(--text-sm);
+        font-weight: var(--weight-regular);
+        color: var(--color-text-secondary);
+        line-height: var(--leading-normal);
+        margin: 0;
+    }
+}
+
+// ── Row 2: Banner ─────────────────────────────────────────
+.about-banner {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+
+    img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        filter: grayscale(20%) brightness(0.85);
+        transition: filter var(--duration-slow) var(--ease-out),
+                    transform var(--duration-slow) var(--ease-out);
+
+        &:hover {
+            filter: grayscale(0%) brightness(0.95);
+            transform: scale(1.015);
+        }
+
+        @media (max-width: 768px) {
+            height: 260px;
+        }
+    }
+}
+
+// ── Row 3: Portrait + editorial columns ───────────────────
+.about-profile {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 5rem;
+    align-items: start;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 300px 1fr;
+        gap: 3rem;
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+.about-portrait {
+    position: relative;
+
+    img {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        filter: grayscale(100%) contrast(1.05);
+        border: 1px solid var(--color-border);
+    }
+
+    // Gold corner accent
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 40px;
+        height: 40px;
+        border-top: 1px solid var(--color-accent);
+        border-left: 1px solid var(--color-accent);
+        pointer-events: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        width: 40px;
+        height: 40px;
+        border-bottom: 1px solid var(--color-accent);
+        border-right: 1px solid var(--color-accent);
+        pointer-events: none;
+    }
+}
+
+.about-profile-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-content: start;
+    padding-top: 0.5rem;
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.about-profile-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    p {
+        font-size: var(--text-sm);
+        font-weight: var(--weight-regular);
+        color: var(--color-text-secondary);
+        line-height: var(--leading-normal);
+        margin: 0;
+    }
+}
